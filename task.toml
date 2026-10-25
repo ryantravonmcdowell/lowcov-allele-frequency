@@ -1,0 +1,37 @@
+schema_version = "1.4"
+
+artifacts = ["/root/results/allele_frequencies.tsv"]
+
+[task]
+name = "turing/lowcov-allele-frequency"
+description = "Estimate per-population ALT allele frequencies and flag collapsed paralogs among 12,000 candidate SNPs from a low-coverage two-population cohort."
+version = "1.0"
+keywords = ["allele-frequency", "low-coverage-sequencing", "paralog-collapse", "genotype-likelihood"]
+
+[metadata]
+domain = "life-sciences"
+category = "biology"
+subcategory = "population-genetics"
+reward_type = "binary"
+source = "original"
+public_overlap = "none"
+
+[environment]
+network_mode = "public"
+cpus = 2
+memory_mb = 4096
+storage_mb = 10240
+
+[agent]
+timeout_sec = 18000
+network_mode = "public"
+
+[verifier]
+timeout_sec = 300.0
+network_mode = "no-network"
+environment_mode = "separate"
+
+[verifier.environment]
+network_mode = "no-network"
+cpus = 2
+memory_mb = 4096
